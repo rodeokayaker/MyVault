@@ -44,6 +44,4 @@ updated: 2026-03-13
 - [ ] Подготовить тестовую матрицу стенд -> вода
 
 ## Links
-
-- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — заявка|Patent]]
 - [[MOC_Projects]]
