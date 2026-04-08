@@ -1,94 +1,121 @@
 # Timeweb Transit VPN — Progress
 
-## Goal
+## Status
 
-Построить на Timeweb VDS транзитную VPN-схему:
-- вход через AmneziaWG / AmneziaVPN
-- outbound primary через US WireGuard
-- outbound backup через второй WireGuard
-- для клиентского трафика:
-  - RU/local/private → direct
-  - остальное → primary WG
-  - если primary down → backup WG
-  - если backup down → direct
+Состояние: `done / operational`.
 
-При этом нельзя сломать существующие сервисы:
-- TG_Business
-- KayakMoscow
-- Caddy
-- существующий host-level `awg-split`
+Актуально на `2026-04-08`.
 
-## Что уже сделано
+Система в рабочем состоянии и сейчас состоит из двух слоев:
+- transit VPN для split-routing и egress failover
+- ingress VPN для пользовательских подключений по `WG` и `AmneziaWG 2.0`
 
-### Исследование сервера
-- Подтверждён доступ по SSH
-- Собрана информация по ОС, Docker, сетям, Caddy, контейнерам
-- Выявлено, что на хосте уже есть старый `awg-split` для части AI/Cloudflare/AWS/Google трафика
+Текущая логика маршрутизации:
+- `RU/private` -> `direct`
+- `gosuslugi` -> `NL`
+- остальное -> `US`
+- failover: `US -> NL -> direct`
 
-### Existing production baseline
-Проверено, что работают:
-- `n8n.x-citrus.ru`
-- `admin.kayakmoscow.com`
-- `n8n.kayakmoscow.com`
-- контейнеры TG_Business и KayakMoscow
+Текущий runtime-режим:
+- `current-mode = us`
 
-### Новый staging-контур
-Создан каталог:
-- `/opt/transit-vpn`
+## Что в итоге сделано
 
-Подготовлены:
-- backups существующих wireguard/amnezia конфигов
-- `wg-primary`
-- `wg-backup`
-- `amnezia-ingress/` (staging)
-- `host-routing/` (staging)
+- поднят отдельный стек в `/opt/transit-vpn`
+- ingress переведен с legacy `metaligh/amneziawg` на полноценный `AmneziaWG 2.0` runtime
+- собран и используется кастомный образ:
+  - `local/transit-amneziawg2:2026-04-08`
+- ingress сейчас принимает:
+  - `WG` на `UDP 585`
+  - `AmneziaWG 2.0` на `UDP 586`
+- data plane и split-routing реализованы через `sing-box`
+- egress-схема:
+  - `US` primary
+  - `NL` backup
+  - `direct` emergency fallback
+- для `gosuslugi` добавлено отдельное исключение через `NL`
+- установлен server-side utility:
+  - `/usr/local/bin/addawguser`
+- скрипт `addawguser`:
+  - создает нового peer
+  - выбирает следующий IP
+  - добавляет peer в `awg1.conf`
+  - делает `syncconf`
+  - добавляет обратный маршрут
+  - сохраняет клиентский конфиг
 
-### Outbound WG verified
-Подняты и проверены:
-- `transit-wg-primary`
-- `transit-wg-backup`
+## Что подтверждено тестами
 
-Подтверждён egress:
-- primary → `107.175.35.94`
-- backup → `178.208.88.56`
+- обычный внешний трафик клиента выходит через `US`
+- `RU/private` не уходит в `US`
+- `gosuslugi.ru` и `esia.gosuslugi.ru` работают через отдельный `NL`-route
+- failover `US -> NL -> direct` работает
+- старый `WG` ingress на `585/udp` после миграции не сломан
+- новый полный `AmneziaWG 2.0` ingress на `586/udp` работает с:
+  - `Jc/Jmin/Jmax`
+  - `S1/S2/S3/S4`
+  - `H1/H2/H3/H4`
+  - `I1`
+- `addawguser` протестирован на пользователе `baga`
+- `baga`-конфиг поднят и дал внешний IP `107.175.35.94`
 
-### Safety checks
-После запуска новых WG-контейнеров перепроверено:
-- prod-сервисы отвечают штатно
-- host routing не сломан
-- существующие контейнеры живы
+## Активные ingress-пользователи
 
-## Текущий статус
+На `2026-04-08` в `awg1` заведены:
+- `vanya-amnezia` -> `192.168.201.2/32`
+- `phone_vanya` -> `192.168.201.3/32`
+- `natalie_comp` -> `192.168.201.4/32`
+- `natalie_phone` -> `192.168.201.5/32`
+- `baga` -> `192.168.201.6/32`
 
-### Уже готово
-- изолированные outbound primary/backup WG работают
-- подготовлены host-routing scripts (staging only)
-- compose приведён к честному минимальному виду
+Старый отдельный `WG`-клиент на `awg0` сохранен как отдельный ingress-контур.
 
-### Ещё не сделано
-- ingress AmneziaWG не поднят
-- host-side policy routing не применён
-- failover не включён
-- клиентский subnet ещё не маршрутизируется
+## Где лежит главное
 
-## Важный инженерный вывод
-
-Следующий шаг уже потенциально влияет на реальный трафик.
-Безопасная подготовка завершена.
-Дальше нужны точечные state-changing действия:
-- применение host-side policy routing для нового client subnet
-- или запуск ingress + последующее связывание с routing
-
-## Артефакты на сервере
+На сервере:
 - `/opt/transit-vpn/docker-compose.yml`
-- `/opt/transit-vpn/README.md`
-- `/opt/transit-vpn/wg-primary/wg_confs/wg0.conf`
-- `/opt/transit-vpn/wg-backup/wg_confs/wg0.conf`
+- `/opt/transit-vpn/sing-box/config.json`
+- `/opt/transit-vpn/amnezia-ingress/data/awg0.conf`
+- `/opt/transit-vpn/amnezia-ingress/data/awg1.conf`
+- `/opt/transit-vpn/amnezia-ingress/clients/`
+- `/opt/transit-vpn/amnezia2-image/Dockerfile`
+- `/usr/local/bin/addawguser`
 - `/opt/transit-vpn/host-routing/apply-routes.sh`
-- `/opt/transit-vpn/host-routing/rollback-routes.sh`
-- `/opt/transit-vpn/host-routing/failover.sh`
-- `/opt/transit-vpn/amnezia-ingress/`
+- `/opt/transit-vpn/host-routing/healthcheck.sh`
+- `/opt/transit-vpn/host-routing/current-mode`
 
-## Recommendation
+Локально:
+- `/Users/vanya/Documents/VPN/deploy_transit_rework.sh`
+- `/Users/vanya/Documents/VPN/amnezia2.Dockerfile`
+- `/Users/vanya/Documents/VPN/addawguser`
+- `/Users/vanya/Documents/VPN/remote_awg2_conf_test.sh`
 
-Продолжать дальше по шагам с явным подтверждением перед любым действием, которое уже может повлиять на маршрут реального трафика.
+## Как пользоваться
+
+Добавить нового пользователя на сервере:
+
+```bash
+addawguser some_user
+```
+
+Что получится:
+- новый peer в `awg1`
+- новый маршрут `192.168.201.x/32 dev awg1`
+- клиентский конфиг в:
+  - `/opt/transit-vpn/amnezia-ingress/clients/some_user.conf`
+
+## Важные ограничения и замечания
+
+- один конфиг нельзя безопасно ставить на несколько устройств
+- одно устройство = один peer = один `PrivateKey`
+- `gosuslugi` с direct через `Timeweb` IP не работают, поэтому для них отдельный route через `NL`
+- старый host-level `awg-split` не трогать без отдельной причины
+
+## Детальное описание
+
+Полный runbook и системное описание:
+- `[[Timeweb_Transit_VPN_System]]`
+
+## Related Notes
+
+- `[[Timeweb_VDS]]`
