@@ -1,0 +1,20 @@
+wing: obsidian_vault
+rooms:
+  - name: projects
+    description: Project notes and plans
+    keywords: [project, projects]
+  - name: daily
+    description: Daily notes and temporal logs
+    keywords: [daily, journal, day]
+  - name: inbox
+    description: Inbox and intake notes
+    keywords: [inbox, capture]
+  - name: resources
+    description: Resources and reference materials
+    keywords: [resources, reference, handbook, checklist]
+  - name: personal
+    description: Personal and area notes
+    keywords: [personal, areas, family, life]
+  - name: general
+    description: Files that don't fit other rooms
+    keywords: []
