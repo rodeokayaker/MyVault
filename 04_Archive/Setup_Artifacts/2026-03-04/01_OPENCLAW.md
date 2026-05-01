@@ -1,3 +1,10 @@
+---
+type: archive
+status: archived
+tags: [archive]
+updated: 2026-05-01
+---
+
 # OpenClaw на Raspberry Pi
 
 ## Что настроено
@@ -38,3 +45,5 @@ openclaw config validate
 - Если добавляешь новый каталог заметок, добавляй его в `agents.defaults.memorySearch.extraPaths` и запускай переиндексацию.
 - Если в `memorySearch.remote.apiKey` стоит невалидный ключ, будут ошибки удаленного memory API (401). Для локальной памяти это не требуется.
 
+## Связанные заметки
+- [[MOC_Home]]

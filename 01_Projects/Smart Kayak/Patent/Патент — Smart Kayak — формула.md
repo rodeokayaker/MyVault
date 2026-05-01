@@ -1,6 +1,6 @@
 ---
 created: 2026-03-12
-updated: 2026-03-12
+updated: 2026-05-01
 type: deliverable
 project: Smart Kayak
 status: active
@@ -49,3 +49,19 @@ tags: [smart-kayak, patent, claims]
 16. Умное весло по п. 1, в котором модуль определения пространственного состояния дополнительно содержит магнитометр и выполнен с возможностью определения абсолютной ориентации весла.
 
 17. Система по п. 6, в которой относительную ориентацию весла и плавсредства определяют без обязательного использования магнитометра.
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/Smart Kayak/Project]]
+- [[01_Projects/Smart Kayak/Smart Kayak]]
+- [[01_Projects/Smart Kayak/Architecture]]
+- [[01_Projects/Smart Kayak/Design Language]]
+- [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)]]
+- [[01_Projects/Smart Kayak/Hardware/Батарея SUP — спецификация]]
+- [[01_Projects/Smart Kayak/Kayak/Kayak]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — заявка]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — обозначения]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — чертежи]]
+- [[01_Projects/Smart Kayak/Patent/Патент — описание Smart Kayak]]
+- [[01_Projects/Smart Kayak/SUP/SUP]]
+- [[01_Projects/Smart Kayak/SUP/docs/Электро-САП борд — Техническое описание]]

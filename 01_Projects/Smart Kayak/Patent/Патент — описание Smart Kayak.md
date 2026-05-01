@@ -1,6 +1,6 @@
 ---
 created: 2026-03-12
-updated: 2026-03-12
+updated: 2026-05-01
 type: work
 project: Smart Kayak
 status: active
@@ -441,3 +441,19 @@ tags: [smart-kayak, patent, description]
 - режим анализа техники гребли.
 
 Единый перечень позиционных обозначений и актуальный состав чертежей приведены в файлах `07_Позиционные_обозначения.md` и `08_Drawings_Final/README.md`.
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/Smart Kayak/Project]]
+- [[01_Projects/Smart Kayak/Smart Kayak]]
+- [[01_Projects/Smart Kayak/Architecture]]
+- [[01_Projects/Smart Kayak/Design Language]]
+- [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)]]
+- [[01_Projects/Smart Kayak/Hardware/Батарея SUP — спецификация]]
+- [[01_Projects/Smart Kayak/Kayak/Kayak]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — заявка]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — обозначения]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — формула]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — чертежи]]
+- [[01_Projects/Smart Kayak/SUP/SUP]]
+- [[01_Projects/Smart Kayak/SUP/docs/Электро-САП борд — Техническое описание]]

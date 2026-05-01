@@ -2,7 +2,7 @@
 type: project
 status: in-progress
 tags: [smart-kayak, kayak, sup, smart-paddle, ble, motor-control]
-updated: 2026-04-06
+updated: 2026-05-01
 ---
 
 # Smart Kayak
@@ -51,7 +51,7 @@ updated: 2026-04-06
 
 - [x] Патент: собрана расширенная версия заявки с примерами реализации, включая варианты SUP/каяк, с магнитометром и без, с мотором и без, а также аналитический режим (см. [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — заявка|заявка]]).
 - [x] Заявка принята и зарегистрирована в ФИПС: рег. № `2026109935`, дата регистрации `06.04.2026`, входящий № `W26021775`.
-- [x] [[Flow Straightener (водомёт)]]: смоделировать выпрямитель потока (+5 см) и посадку под подшипник; отдать Максу в печать.
+- [x] [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)|Flow Straightener (водомёт)]]: смоделировать выпрямитель потока (+5 см) и посадку под подшипник; отдать Максу в печать.
 - [x] После регистрации заявки: добавить регистрационный номер, дату регистрации и подтверждающие документы в патентный раздел Obsidian.
 - [x] Перед подачей патента: проверить единообразие терминов, убрать излишне жёсткую привязку к конкретной элементной базе в описании примеров и финально вычитать формулу на предмет заужения.
 - [ ] Формализовать roadmap по трекам `Kayak` / `Smart Paddle` / `SUP`
@@ -60,3 +60,19 @@ updated: 2026-04-06
 
 ## Links
 - [[MOC_Projects]]
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/Smart Kayak/Smart Kayak]]
+- [[01_Projects/Smart Kayak/Architecture]]
+- [[01_Projects/Smart Kayak/Design Language]]
+- [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)]]
+- [[01_Projects/Smart Kayak/Hardware/Батарея SUP — спецификация]]
+- [[01_Projects/Smart Kayak/Kayak/Kayak]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — заявка]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — обозначения]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — формула]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — чертежи]]
+- [[01_Projects/Smart Kayak/Patent/Патент — описание Smart Kayak]]
+- [[01_Projects/Smart Kayak/SUP/SUP]]
+- [[01_Projects/Smart Kayak/SUP/docs/Электро-САП борд — Техническое описание]]

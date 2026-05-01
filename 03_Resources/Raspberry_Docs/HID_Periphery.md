@@ -1,3 +1,10 @@
+---
+type: resource
+status: active
+tags: [resource, resource/raspberry-docs]
+updated: 2026-05-01
+---
+
 # HID-периферия: hidon / hidoff / histatus
 
 ## Назначение
@@ -43,3 +50,12 @@ histatus
 - Не-HID служебные USB интерфейсы не трогаются.
 - Если после `hidon` конкретная USB-клавиатура не проснулась из-за железа/хаба, обычно помогает одно физическое переподключение; далее работает штатно.
 
+## Связанные заметки
+- [[MOC_Resources]]
+- [[03_Resources/Raspberry_Docs/Obsidian]]
+- [[03_Resources/Raspberry_Docs/OpenClaw]]
+- [[03_Resources/Raspberry_Docs/OpenClaw_Current_Config]]
+- [[03_Resources/Raspberry_Docs/RUNBOOK]]
+- [[03_Resources/Raspberry_Docs/Raspberry_Setup_Index]]
+- [[03_Resources/Raspberry_Docs/Syncthing_Obsidian_Sync]]
+- [[03_Resources/Raspberry_Docs/VPN_AmneziaWG]]

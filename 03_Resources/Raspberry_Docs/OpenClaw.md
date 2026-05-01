@@ -1,3 +1,10 @@
+---
+type: resource
+status: active
+tags: [resource, resource/raspberry-docs]
+updated: 2026-05-01
+---
+
 # OpenClaw на Raspberry Pi
 
 ## Что настроено
@@ -38,3 +45,12 @@ openclaw config validate
 - Если добавляешь новый каталог заметок, добавляй его в `agents.defaults.memorySearch.extraPaths` и запускай переиндексацию.
 - Если в `memorySearch.remote.apiKey` стоит невалидный ключ, будут ошибки удаленного memory API (401). Для локальной памяти это не требуется.
 
+## Связанные заметки
+- [[MOC_Resources]]
+- [[03_Resources/Raspberry_Docs/HID_Periphery]]
+- [[03_Resources/Raspberry_Docs/Obsidian]]
+- [[03_Resources/Raspberry_Docs/OpenClaw_Current_Config]]
+- [[03_Resources/Raspberry_Docs/RUNBOOK]]
+- [[03_Resources/Raspberry_Docs/Raspberry_Setup_Index]]
+- [[03_Resources/Raspberry_Docs/Syncthing_Obsidian_Sync]]
+- [[03_Resources/Raspberry_Docs/VPN_AmneziaWG]]

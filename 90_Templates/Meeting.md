@@ -7,13 +7,14 @@ updated: {{date:YYYY-MM-DD}}
 
 # {{title}}
 
-## Participants
+## Участники
 
-## Agenda
+## Повестка
 
-## Notes
+## Заметки
 
-## Decisions
+## Решения
 
-## Action items
+## Задачи
+
 - [ ]

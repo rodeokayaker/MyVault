@@ -1,15 +1,18 @@
 ---
+created: 2026-02-15
+updated: 2026-05-01
 type: project
+project: KayakMoscow
 status: active
-tags: [kayak, erp, directus, n8n, postgres, telegram]
-updated: 2026-03-04
+tags: [kayakmoscow, erp, directus, n8n, postgres, telegram]
+parent: "[[KayakMoscow]]"
 ---
 
-# Kayak Moscow ERP
+# ERP
 
-Система автоматизации бизнеса для компании **Kayak Moscow** — водные прогулки, 3 точки базирования (Строгино, Архангельское, Медуза).
+Система автоматизации бизнеса Kayak Moscow — водные прогулки, 3 точки базирования ([[Строгино]], [[Архангельское]], Медуза/Троице-Лыково).
 
-## Stack
+## Стек
 
 ```
 PostgreSQL 16     — 29 бизнес-таблиц, вся логика на триггерах
@@ -22,8 +25,8 @@ Docker Compose    — всё в контейнерах, сервер Timeweb
 
 ## Доступы
 
-- Directus: https://admin.kayakmoscow.com
-- n8n: https://n8n.kayakmoscow.com
+- Directus: `https://admin.kayakmoscow.com`
+- n8n: `https://n8n.kayakmoscow.com`
 - Сервер: `ssh root@176.124.208.237`
 - Все ключи: [[Credentials]]
 
@@ -45,13 +48,18 @@ Docker Compose    — всё в контейнерах, сервер Timeweb
 
 ## Что осталось
 
-- [ ] Корпоративное предложение: согласовать финальную версию; назначить встречу со Стасом.
+- [ ] Корпоративное предложение: согласовать финальную версию; назначить встречу со Стасом
 - [ ] Переименовать admin1/2/3 в реальные имена
 - [ ] Tinkoff: Terminal Key + Secret, прописать webhook URL
 - [ ] Проверить бота в боевом режиме
 - [ ] Онлайн-бронирование (отдельная история — сайт)
 
-## Key links
+## Связанные заметки
 
+- [[KayakMoscow]] — родительский хаб
+- [[Technical]] · [[User_Guide]] · [[Credentials]] — документация ERP
+- [[Infrastructure_VDS]] — общий стек на этом же VDS (Postgres/Directus/n8n/Caddy)
+- [[Ads_Automation]] — соседний проект, делит контейнер `kayak-postgres`
+- [[Site]] — связанная история про онлайн-бронирование
+- [[Корпоративное предложение — KayakMoscow (презентация)]] — B2B-направление
 - [[MOC_Projects]]
-- [[03_Resources/KayakMoscow_ERP/Technical]]

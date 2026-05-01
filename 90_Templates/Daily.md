@@ -6,11 +6,12 @@ updated: {{date:YYYY-MM-DD}}
 
 # {{date:YYYY-MM-DD}}
 
-## Top 3
+## Топ-3
+
 - [ ]
 - [ ]
 - [ ]
 
-## Notes
+## Заметки
 
-## Done
+## Сделано

@@ -1,3 +1,10 @@
+---
+type: project-note
+status: active
+tags: [project, project/vpn]
+updated: 2026-05-01
+---
+
 # Timeweb Transit VPN — System Description
 
 ## Status
@@ -431,3 +438,9 @@ addawguser some_user
 - `addawguser` работает
 - `baga`-конфиг успешно поднят в тестовом `AWG 2.0`-клиенте
 - внешний IP через `baga` = `107.175.35.94`
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/VPN/RackNerd/Secrets]]
+- [[01_Projects/VPN/Timeweb_Transit_VPN_Progress]]
+- [[01_Projects/VPN/Timeweb_VDS]]

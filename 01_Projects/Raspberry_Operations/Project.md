@@ -2,7 +2,7 @@
 type: project
 status: active
 tags: [raspberry, infra, openclaw]
-updated: 2026-03-04
+updated: 2026-05-01
 ---
 
 

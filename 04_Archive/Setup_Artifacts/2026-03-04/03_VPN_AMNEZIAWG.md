@@ -1,3 +1,10 @@
+---
+type: archive
+status: archived
+tags: [archive]
+updated: 2026-05-01
+---
+
 # VPN: миграция на AmneziaWG
 
 ## Что сделано
@@ -49,3 +56,5 @@ systemctl is-active awg-quick@awg0
 ## Бэкапы
 - Старые скрипты и конфиги сохранены с суффиксами `.bak-*` / `.wg.bak-*`.
 
+## Связанные заметки
+- [[MOC_Home]]

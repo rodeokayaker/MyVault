@@ -1,3 +1,10 @@
+---
+type: project-note
+status: active
+tags: [project, project/vpn]
+updated: 2026-05-01
+---
+
 # Timeweb VDS
 
 ## Доступ
@@ -87,3 +94,9 @@
 ## Практический вывод
 
 Сервер подходит для роли VPN-транзита, но на нём уже есть рабочая проектная нагрузка (Kayak + TG_Business), поэтому сетевые изменения надо делать поэтапно и желательно без ломания текущего Caddy/Docker контура.
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/VPN/RackNerd/Secrets]]
+- [[01_Projects/VPN/Timeweb_Transit_VPN_Progress]]
+- [[01_Projects/VPN/Timeweb_Transit_VPN_System]]

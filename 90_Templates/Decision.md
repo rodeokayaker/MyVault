@@ -7,10 +7,10 @@ updated: {{date:YYYY-MM-DD}}
 
 # {{title}}
 
-## Decision
+## Решение
 
-## Options considered
+## Рассмотренные варианты
 
-## Why this
+## Почему так
 
-## Consequences
+## Последствия

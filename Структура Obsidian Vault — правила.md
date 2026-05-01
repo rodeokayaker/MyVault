@@ -1,7 +1,9 @@
 ---
 created: 2026-03-11
-updated: 2026-03-11
+status: active
+updated: 2026-05-01
 type: meta
+tags: [system]
 ---
 
 # Структура Obsidian Vault — правила
@@ -76,3 +78,8 @@ type: meta
 - Это **личное/быт/люди/долгие обязанности** → `02_Areas/Personal/…`
 - Это **инструкция/чеклист/справочник** → `03_Resources/…`
 - Это **уже не нужно активно** → `04_Archive/`
+
+## Связанные заметки
+- [[MOC_Home]]
+- [[99_System/Workflows]]
+- [[99_System/Glossary]]

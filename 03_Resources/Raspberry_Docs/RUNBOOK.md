@@ -1,3 +1,10 @@
+---
+type: resource
+status: active
+tags: [resource, resource/raspberry-docs]
+updated: 2026-05-01
+---
+
 # RUNBOOK (Raspberry + OpenClaw)
 
 ## 1) Базовая проверка после перезагрузки
@@ -109,3 +116,13 @@ sudo /usr/local/bin/pi-healthcheck
 ```bash
 sudo tail -n 100 /var/log/pi-healthcheck.log
 ```
+
+## Связанные заметки
+- [[MOC_Resources]]
+- [[03_Resources/Raspberry_Docs/HID_Periphery]]
+- [[03_Resources/Raspberry_Docs/Obsidian]]
+- [[03_Resources/Raspberry_Docs/OpenClaw]]
+- [[03_Resources/Raspberry_Docs/OpenClaw_Current_Config]]
+- [[03_Resources/Raspberry_Docs/Raspberry_Setup_Index]]
+- [[03_Resources/Raspberry_Docs/Syncthing_Obsidian_Sync]]
+- [[03_Resources/Raspberry_Docs/VPN_AmneziaWG]]

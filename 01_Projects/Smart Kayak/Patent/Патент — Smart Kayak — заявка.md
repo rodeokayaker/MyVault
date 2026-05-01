@@ -1,6 +1,6 @@
 ---
 created: 2026-03-12
-updated: 2026-04-06
+updated: 2026-05-01
 type: deliverable
 project: Smart Kayak
 status: active
@@ -270,3 +270,19 @@ tags: [smart-kayak, patent, application]
 ## Примечание по подаче
 
 Перед подачей необходимо отдельно заполнить формальные реквизиты заявления, проверить окончательную редакцию формулы, приложить чертежи и согласовать заявочный комплект с патентным поверенным РФ.
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/Smart Kayak/Project]]
+- [[01_Projects/Smart Kayak/Smart Kayak]]
+- [[01_Projects/Smart Kayak/Architecture]]
+- [[01_Projects/Smart Kayak/Design Language]]
+- [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)]]
+- [[01_Projects/Smart Kayak/Hardware/Батарея SUP — спецификация]]
+- [[01_Projects/Smart Kayak/Kayak/Kayak]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — обозначения]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — формула]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — чертежи]]
+- [[01_Projects/Smart Kayak/Patent/Патент — описание Smart Kayak]]
+- [[01_Projects/Smart Kayak/SUP/SUP]]
+- [[01_Projects/Smart Kayak/SUP/docs/Электро-САП борд — Техническое описание]]

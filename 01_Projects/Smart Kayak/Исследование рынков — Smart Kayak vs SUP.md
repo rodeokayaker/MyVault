@@ -2,7 +2,7 @@
 type: research
 status: active
 tags: [smart-kayak, sup, kayak, market, strategy, go-to-market]
-updated: 2026-04-14
+updated: 2026-05-01
 aliases: [Market Research — Smart Kayak vs SUP]
 ---
 
@@ -366,3 +366,19 @@ Smart Paddle и analytics лучше рассматривать как ядро 
 - [[01_Projects/Smart Kayak/SUP/SUP|SUP]]
 - [[01_Projects/Smart Kayak/Kayak/Kayak|Kayak]]
 - [[01_Projects/Smart Kayak/Smart Paddle/Smart Paddle|Smart Paddle]]
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/Smart Kayak/Project]]
+- [[01_Projects/Smart Kayak/Smart Kayak]]
+- [[01_Projects/Smart Kayak/Architecture]]
+- [[01_Projects/Smart Kayak/Design Language]]
+- [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)]]
+- [[01_Projects/Smart Kayak/Hardware/Батарея SUP — спецификация]]
+- [[01_Projects/Smart Kayak/Kayak/Kayak]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — заявка]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — обозначения]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — формула]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — чертежи]]
+- [[01_Projects/Smart Kayak/Patent/Патент — описание Smart Kayak]]
+- [[01_Projects/Smart Kayak/SUP/SUP]]

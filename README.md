@@ -1,17 +1,37 @@
+---
+type: meta
+status: active
+tags: [system, vault]
+updated: 2026-05-01
+---
+
 # OpenClaw Vault Structure
 
-This vault follows a project-friendly structure:
-- `00_Inbox` for quick capture
-- `01_Projects` for active projects
-- `02_Areas` for ongoing areas of responsibility
-- `03_Resources` for reference material
-- `04_Archive` for completed content
-- `90_Templates` for note templates
-- `99_System` for index, glossary, rules
-- `Daily` for daily notes
-- `Attachments` for files/images
+## Навигация
+- [[MOC_Home]]
+- [[MOC_Projects]]
+- [[MOC_Areas]]
+- [[MOC_Resources]]
+- [[MOC_Daily]]
 
-Conventions:
-- Keep notes in Markdown (`.md`)
-- Add frontmatter in key notes (`type`, `status`, `tags`, `updated`)
-- Link important notes from MOC pages
+## Папки
+- `00_Inbox` — быстрый захват и неразобранные заметки
+- `01_Projects` — активные проекты
+- `02_Areas` — долгие сферы ответственности
+- `03_Resources` — справочники, инструкции, чеклисты
+- `04_Archive` — завершённые и исторические материалы
+- `90_Templates` — шаблоны заметок
+- `99_System` — системные правила и справочники
+- `Daily` — ежедневные заметки
+- `Attachments` — файлы и изображения
+
+## Conventions
+- Keep notes in Markdown (`.md`).
+- Add frontmatter in key notes (`type`, `status`, `tags`, `updated`).
+- Link important notes from MOC pages.
+- Use explicit wikilinks with paths when a note name is ambiguous.
+
+## Связанные заметки
+- [[Структура Obsidian Vault — правила]]
+- [[99_System/Workflows]]
+- [[99_System/Glossary]]

@@ -1,3 +1,10 @@
+---
+type: project-note
+status: active
+tags: [project, project/vpn]
+updated: 2026-05-01
+---
+
 # Timeweb Transit VPN — Progress
 
 ## Status
@@ -119,3 +126,9 @@ addawguser some_user
 ## Related Notes
 
 - `[[Timeweb_VDS]]`
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/VPN/RackNerd/Secrets]]
+- [[01_Projects/VPN/Timeweb_Transit_VPN_System]]
+- [[01_Projects/VPN/Timeweb_VDS]]

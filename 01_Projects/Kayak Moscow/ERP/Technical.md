@@ -1,17 +1,16 @@
 ---
-type: resource
-tags: [kayak, erp, technical, directus, n8n, postgres, docker]
-updated: 2026-03-04
-project: "[[01_Projects/KayakMoscow_ERP/Project]]"
+created: 2026-03-04
+updated: 2026-05-01
+type: reference
+project: KayakMoscow
+status: active
+tags: [kayakmoscow, erp, technical, directus, n8n, postgres, docker]
+parent: "[[ERP]]"
 ---
 
-# Kayak Moscow ERP — Техническая документация
+# ERP — техническая документация
 
 **Версия:** 1.2 | **Дата:** Март 2026
-
-→ [[Credentials]] | [[User_Guide]] | [[01_Projects/KayakMoscow_ERP/Project]]
-
----
 
 ## 1. Обзор системы
 
@@ -23,8 +22,6 @@ Telegram Bot (через n8n) — быстрые команды для адми�
 Caddy                  — reverse proxy, SSL-сертификаты
 Docker Compose         — изоляция окружения на сервере
 ```
-
----
 
 ## 2. Сервер
 
@@ -58,8 +55,6 @@ Docker Compose         — изоляция окружения на сервер
 | Kayak Moscow | `/root/kayak/` | `kayak-network` | 5432, 8055, 5679 |
 | tg-business | `/root/tg-business/` | `tg-business_default` | 5678 |
 
----
-
 ## 3. Docker-контейнеры (проект kayak)
 
 | Контейнер | Образ | Порт | Назначение |
@@ -82,8 +77,6 @@ docker compose logs -f n8n
 docker compose down
 docker compose up -d
 ```
-
----
 
 ## 4. SSL-сертификаты (Caddy + Cloudflare)
 
@@ -117,8 +110,6 @@ journalctl -u caddy -n 50
 /usr/bin/caddy list-modules | grep cloudflare
 ```
 
----
-
 ## 5. База данных PostgreSQL
 
 ### Структура (29 таблиц, 9 модулей)
@@ -135,7 +126,7 @@ journalctl -u caddy -n 50
 | Корпоративы | `corporate_events` |
 | Коммуникации | `notifications`, `notification_log` |
 
-### Views (5 штук)
+### Представления (5 штук)
 
 | View | Назначение |
 |------|-----------|
@@ -167,9 +158,9 @@ CREATE UNIQUE INDEX idx_unique_group_trip
   WHERE trip_type = 'group';
 ```
 
-**ISO day_of_week:** 1=Пн, 7=Вс → `EXTRACT(ISODOW FROM date)`.
+**ISO день недели:** 1=Пн, 7=Вс → `EXTRACT(ISODOW FROM date)`.
 
-### Бэкап / Восстановление БД
+### Бэкап и восстановление БД
 
 ```bash
 # Бэкап
@@ -182,13 +173,11 @@ docker exec -i kayak-postgres psql -U kayak -d kayak_moscow < backup_20260301.sq
 docker exec -it kayak-postgres psql -U kayak -d kayak_moscow
 ```
 
----
-
 ## 6. Directus
 
-**URL:** https://admin.kayakmoscow.com | **Версия:** 11.15.4
+**URL:** `https://admin.kayakmoscow.com` | **Версия:** 11.15.4
 
-### Настроено
+### Что настроено
 
 - 31 коллекция, русские названия, иконки, display templates
 - Роли: Администратор (124 permissions CRUD), Заведующий точкой (30 permissions)
@@ -231,11 +220,9 @@ Role → directus_access → Policy → directus_permissions
 > [!note] Формат headers в operation
 > Массив: `[{"header": "Content-Type", "value": "application/json"}]`, не словарь.
 
----
-
 ## 7. n8n
 
-**URL:** https://n8n.kayakmoscow.com | **Версия:** 2.6.4
+**URL:** `https://n8n.kayakmoscow.com` | **Версия:** 2.6.4
 
 ### Воркфлоу (все активны)
 
@@ -266,9 +253,7 @@ Role → directus_access → Policy → directus_permissions
 > - **Кириллица в именах нод** ломает webhook URL — только латиница для webhook-нод
 > - **responseMode: responseNode** — если нода до Respond может упасть, ставить `onError: continueRegularOutput`
 
----
-
-## 8. Telegram Bot
+## 8. Telegram-бот
 
 | Параметр | Значение |
 |----------|----------|
@@ -277,8 +262,6 @@ Role → directus_access → Policy → directus_permissions
 | Воркфлоу | WF7 `a172huRxsYB4b8ec` |
 
 Используется Webhook-нод (не TelegramTrigger) — URL стабильный.
-
----
 
 ## 9. История изменений
 
@@ -291,8 +274,6 @@ Role → directus_access → Policy → directus_permissions
 | Март 2026 | 8 воркфлоу n8n |
 | Март 2026 | Directus Flow: авто-уведомление при создании брони |
 
----
-
 ## 10. Известные ограничения
 
 - **n8n отдельная БД `kayak_n8n`** — иначе загрязняет Directus своими таблицами
@@ -300,3 +281,11 @@ Role → directus_access → Policy → directus_permissions
 - **Caddy — кастомная сборка**, не из apt. Бинарник: `/usr/bin/caddy`
 - **Directus Flow trigger** создаётся как `hook`, нужно исправить на `event` в БД
 - **Set node v3.4** через API не работает → Code node
+
+## Связанные заметки
+
+- [[ERP]] — карточка проекта
+- [[Credentials]] · [[User_Guide]] — документация ERP
+- [[KayakMoscow]] — родительский хаб
+- [[Infrastructure_VDS]] — карта VDS (общий стек)
+- [[Ads_Automation]] — соседний проект на той же инфраструктуре

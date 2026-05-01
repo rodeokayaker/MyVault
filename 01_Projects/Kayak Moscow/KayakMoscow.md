@@ -1,33 +1,58 @@
 ---
 created: 2026-03-11
-updated: 2026-04-04
-type: project
+updated: 2026-05-01
+type: hub
+project: KayakMoscow
 status: active
+tags: [kayakmoscow, hub]
 ---
 
 # KayakMoscow
 
-Проект/бизнес: каяки (прокат/туры/корпораты), Москва.
+Бизнес-хаб: каякинг, SUP-прогулки, корпоративные мероприятия в Москве и ближнем Подмосковье. Все рабочие материалы по проекту собираются здесь.
 
-## Ключевые материалы
-- [[01_Projects/Kayak Moscow/Marketing/Корпоративное предложение — KayakMoscow (презентация)]]
-- [[01_Projects/Kayak Moscow/Marketing/Лидлист — event-агентства Москва_МО (корпоратив на каяках)]]
-- [[01_Projects/Kayak Moscow/Marketing/Исследование рекламного продвижения Kayak Moscow на сезон 2026]]
-- [[01_Projects/Kayak Moscow/Marketing/Исследование paid-площадок и агрегаторов для Kayak Moscow]]
-- [[01_Projects/Kayak Moscow/Marketing/SEO-аудит kayakmoscow.ru (проверка актуальности)]]
-- [[01_Projects/Kayak Moscow/Marketing/SEO-аудит kayakmoscow.ru (исходник 2026-03-16)]]
-- ERP/автоматизация: [[01_Projects/KayakMoscow_ERP/Project|KayakMoscow ERP]]
+## Сайт
+
+- [[Site]] — хаб по `kayakmoscow.ru` (стек, доступы, бэкап, текущие приоритеты)
+- [[Access]] — все креды (SSH, FTP, ISP Manager, Bitrix admin)
+- [[Аудит сайта kayakmoscow.ru (2026-04-20)]] — UX, конверсия, контент, техническое SEO
+- [[Анализ конкурентов (2026-04-21)]] — `akulovmsk.ru` и `baydaroshnaya.ru`
+- [[SEO роудмэп (апрель 2026)]] — что сделано, P0/P1/P2/P3
+- [[SEO семантическое ядро и тексты (2026-04-20)]] — кластеры запросов и готовые title/description
+- [[SEO-аудит kayakmoscow.ru (исходник 2026-03-16)]] — стартовая точка
+- [[SEO-аудит kayakmoscow.ru (проверка актуальности)]] — что уже исправлено
 
 ## Маркетинг
-- Новое базовое исследование по медиамиксу, CRM, реактивации базы, Telegram/VK/Яндекс/2ГИС и погодным сценариям: [[01_Projects/Kayak Moscow/Marketing/Исследование рекламного продвижения Kayak Moscow на сезон 2026]].
-- Исследование внешних paid-площадок (афиши/маркетплейсы впечатлений/билетирование: KudaGo, Tripster, Sputnik8, Afisha Eventmarket, Timepad и др.): [[01_Projects/Kayak Moscow/Marketing/Исследование paid-площадок и агрегаторов для Kayak Moscow]].
-- Следующий логичный документ по этому треку: `План внедрения рекламной системы Kayak Moscow на апрель-август 2026`.
 
-## TODO (ближайшее)
-- [ ] SEO/техничка: убрать редирект-цепочку и `:443` в Location. Сейчас: `https://kayakmoscow.ru/` → `http://www.kayakmoscow.ru/` → `https://www.kayakmoscow.ru:443/` → `200`. Цель: один 301 на `https://www.kayakmoscow.ru/`.
-- [ ] Собрать семантическое ядро (Яндекс) по кластерам: B2C прогулки, SUP, корпоративы, локации (Строгино/Архангельское), вечерние/ночные маршруты.
+- [[Исследование рекламного продвижения Kayak Moscow на сезон 2026]] — медиамикс, CRM, реактивация базы, погодные сценарии
+- [[Исследование paid-площадок и агрегаторов для Kayak Moscow]] — KudaGo, Tripster, Sputnik8, Afisha Eventmarket, Timepad
+- [[Корпоративное предложение — KayakMoscow (презентация)]] — структура коммерческого офера для event-агентств
+- [[Лидлист — event-агентства Москва_МО (корпоратив на каяках)]] — 20 агентств с приоритизацией A/B/C
+
+## Автоматизация рекламы
+
+- [[Ads_Automation]] — Direct API, погодные ставки, минус-слова, dashboard `direct.kayakmoscow.com`
+- [[SYSTEM_snapshot_2026-05-01]] — disaster-recovery снапшот репо `rodeokayaker/kayakmoscow-ads`
+
+## Инфраструктура
+
+- [[Infrastructure_VDS]] — Timeweb VDS `176.124.208.237`: Postgres, Directus, n8n, Caddy. Не путать с хостингом сайта `kayakmoscow.ru`.
+- Соседний проект: [[ERP]] — общий стек `kayak-postgres`/`kayak-directus`/Caddy
 
 ## Локации
-- [[01_Projects/Kayak Moscow/Locations/Строгино]]
-- [[01_Projects/Kayak Moscow/Locations/Архангельское]]
-- [[01_Projects/Kayak Moscow/Locations/СберСити]]
+
+- [[Строгино]] — основная база
+- [[Архангельское]]
+- [[СберСити]]
+
+## TODO (ближайшее)
+
+- [ ] SEO/техничка: убрать редирект-цепочку и `:443` в Location. Сейчас: `https://kayakmoscow.ru/` → `http://www.kayakmoscow.ru/` → `https://www.kayakmoscow.ru:443/` → `200`. Цель: один 301 на `https://www.kayakmoscow.ru/`.
+- [ ] Создать `/events/korporativ/`, `/events/den-rozhdeniya/`, `/events/timbilding/`, `/arenda/` (см. [[SEO роудмэп (апрель 2026)]]).
+- [ ] Подать заявку на прод-доступ Direct API через UI Direct → Инструменты → Настройки API.
+- [ ] Добавить `OPENAI_API_KEY` в `.env` на VDS, иначе `daily_negatives_job` пропускается.
+
+## Связанные заметки
+
+- [[Созвон со Стасом — чеклист (2026-03-11)]] — обсуждения по локациям
+- [[ERP]] — соседний проект, общая инфра

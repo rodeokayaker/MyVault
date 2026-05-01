@@ -1,18 +1,17 @@
 ---
-type: resource
-tags: [kayak, erp, credentials, secrets]
-updated: 2026-03-04
-project: "[[01_Projects/KayakMoscow_ERP/Project]]"
+created: 2026-03-04
+updated: 2026-05-01
+type: reference
+project: KayakMoscow
+status: active
+tags: [kayakmoscow, erp, credentials, secrets]
+parent: "[[ERP]]"
 ---
 
-# Kayak Moscow — Ключи доступа
+# ERP — ключи доступа
 
 > [!danger] Чувствительные данные
 > Не передавать посторонним, не хранить в публичных репозиториях.
-
-→ [[Technical]] | [[User_Guide]] | [[01_Projects/KayakMoscow_ERP/Project]]
-
----
 
 ## Сервер (VPS)
 
@@ -28,11 +27,9 @@ project: "[[01_Projects/KayakMoscow_ERP/Project]]"
 ssh root@176.124.208.237
 ```
 
----
-
 ## Directus
 
-**URL:** https://admin.kayakmoscow.com
+**URL:** `https://admin.kayakmoscow.com`
 
 ### Суперадмин (технический)
 
@@ -42,7 +39,7 @@ ssh root@176.124.208.237
 | Пароль | `AwFO1AXuqDErbX9Fv81o` |
 | Роль | Administrator (встроенная) |
 
-### Аккаунты администраторов
+### Учётки администраторов
 
 | Email | Пароль | Роль |
 |-------|--------|------|
@@ -52,19 +49,15 @@ ssh root@176.124.208.237
 
 > Пароли временные — сменить при первом входе.
 
----
-
 ## n8n
 
-**URL:** https://n8n.kayakmoscow.com
+**URL:** `https://n8n.kayakmoscow.com`
 
 | Поле | Значение |
 |------|----------|
 | Логин | `admin` |
 | Пароль | `h63gjorknudyKu0Z28Rc` |
 | API Key | `n8n_api_kayak_m0sc0w_2026_setup` |
-
----
 
 ## PostgreSQL
 
@@ -83,8 +76,6 @@ ssh root@176.124.208.237
 docker exec -it kayak-postgres psql -U kayak -d kayak_moscow
 ```
 
----
-
 ## Cloudflare
 
 | Параметр | Значение |
@@ -94,17 +85,13 @@ docker exec -it kayak-postgres psql -U kayak -d kayak_moscow
 
 Токен используется Caddy для SSL через DNS-01.
 
----
-
-## Telegram Bot
+## Telegram-бот
 
 | Параметр | Значение |
 |----------|----------|
 | Имя | Kayak Moscow Admin |
 | Токен | `8758244289:AAEsUjBOEsQFGjFuHW3cyruc6dyqUGzyzgg` |
 | Webhook URL | `https://n8n.kayakmoscow.com/webhook/8758244289/webhook` |
-
----
 
 ## Directus — внутренние ID
 
@@ -129,8 +116,6 @@ docker exec -it kayak-postgres psql -U kayak -d kayak_moscow
 | Flow (новая бронь) | `8562b135-ce01-4f55-b9c3-2a3fea950b2a` |
 | Operation (HTTP request) | `bd3c324e-c96b-493f-a1a5-f3f7cb520c21` |
 
----
-
 ## n8n — воркфлоу
 
 | ID | Название |
@@ -143,8 +128,6 @@ docker exec -it kayak-postgres psql -U kayak -d kayak_moscow
 | `74HpmvzPrHqOpyUY` | 6. Отмена по погоде |
 | `a172huRxsYB4b8ec` | 7. Telegram Bot |
 | `YcRDoLUMT4BivJ1s` | 8. Уведомление о новой брони |
-
----
 
 ## Переменные окружения на сервере
 
@@ -160,14 +143,12 @@ N8N_PASSWORD=h63gjorknudyKu0Z28Rc
 N8N_HOST=n8n.kayakmoscow.com
 ```
 
-Cloudflare токен: `/etc/systemd/system/caddy.service.d/cloudflare.conf`
+Cloudflare-токен: `/etc/systemd/system/caddy.service.d/cloudflare.conf`
 
 ```ini
 [Service]
 Environment=CLOUDFLARE_API_TOKEN=xL_NlXhilyd6PdjyFraBRbbq0RqUpSK868oI0ehj
 ```
-
----
 
 ## DNS-записи (Cloudflare)
 
@@ -177,3 +158,11 @@ Environment=CLOUDFLARE_API_TOKEN=xL_NlXhilyd6PdjyFraBRbbq0RqUpSK868oI0ehj
 | `n8n.kayakmoscow.com` | A | `176.124.208.237` | Выключено (серый) |
 
 Трафик идёт напрямую — Caddy сам терминирует TLS.
+
+## Связанные заметки
+
+- [[ERP]] — карточка проекта
+- [[Technical]] · [[User_Guide]] — документация ERP
+- [[KayakMoscow]] — родительский хаб
+- [[Infrastructure_VDS]] — общий стек на VDS
+- [[Access]] — доступы к сайту `kayakmoscow.ru` (другая инфраструктура, не путать)

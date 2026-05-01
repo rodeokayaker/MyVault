@@ -1,10 +1,11 @@
 ---
 created: 2026-04-04
-updated: 2026-04-04
+updated: 2026-05-01
 type: research
 project: KayakMoscow
 status: active
 tags: [kayakmoscow, marketing, advertising, yandex-direct, telegram, vk, crm]
+parent: "[[KayakMoscow]]"
 ---
 
 # Исследование рекламного продвижения Kayak Moscow на сезон 2026
@@ -1616,3 +1617,14 @@ Email хорош:
 - сценарии автоматизаций;
 - KPI по неделям;
 - приоритеты разработки / настройки сайта и аналитики.
+
+---
+
+## Связанные заметки
+
+- [[KayakMoscow]] — родительский хаб
+- [[Исследование paid-площадок и агрегаторов для Kayak Moscow]] — детально про KudaGo/Tripster/Sputnik8
+- [[Ads_Automation]] — реализация перфоманс-контура (Direct API, погодные ставки)
+- [[Site]] — посадочные и аналитика
+- [[Корпоративное предложение — KayakMoscow (презентация)]] · [[Лидлист — event-агентства Москва_МО (корпоратив на каяках)]] — B2B-канал
+- [[ERP]] — CRM/база, на которой строится реактивация

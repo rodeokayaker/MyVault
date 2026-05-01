@@ -1,3 +1,10 @@
+---
+type: project-note
+status: active
+tags: [project, project/tg-business-md]
+updated: 2026-05-01
+---
+
 # TG_Business — Infrastructure on Timeweb VDS
 
 ## Docker stack
@@ -55,3 +62,6 @@ Docker network:
 - как именно используется `pgvector`
 - нужен ли отдельный backup policy для `backup_20260221.sql` и `backups/`
 - какие n8n workflows сейчас завязаны на chat/websocket поведение
+
+## Связанные заметки
+- [[MOC_Projects]]

@@ -1,4 +1,15 @@
-# Kayak Moscow — Infrastructure on Timeweb VDS
+---
+created: 2026-04-07
+updated: 2026-05-01
+type: reference
+project: KayakMoscow
+status: active
+tags: [kayakmoscow, infrastructure, vds, docker, timeweb]
+---
+
+# Infrastructure — Timeweb VDS
+
+Timeweb VDS `176.124.208.237` — общая инфраструктура для ERP, n8n и Ads Automation. Не путать с хостингом сайта `kayakmoscow.ru` (он на shared hosting под ISP Manager — см. [[Site]]).
 
 ## Docker stack
 
@@ -33,6 +44,10 @@ Volumes:
 
 TLS для этих доменов делается через Cloudflare DNS challenge.
 
+Дополнительно (Ads Automation, см. [[Ads_Automation]]):
+- `direct.kayakmoscow.com` → `kayak-ads-web:8090`
+- `n8n-ads.kayakmoscow.com` → `kayak-ads-n8n:5680`
+
 ## Конфигурация приложения
 
 По compose видно:
@@ -64,3 +79,11 @@ TLS для этих доменов делается через Cloudflare DNS ch
 - нужен ли Directus `debug` log level на проде
 - нужен ли прямой внешний доступ к `8055/5679`, если уже есть Caddy
 - не пора ли закрепить версии образов вместо `latest`
+
+## Связанные заметки
+
+- [[KayakMoscow]] — родительский хаб
+- [[Ads_Automation]] — наши контейнеры `kayak-ads-engine`/`kayak-ads-web`/`kayak-ads-n8n` в этой же сети
+- [[SYSTEM_snapshot_2026-05-01]] — полная карта системы для disaster recovery
+- [[ERP]] — общий стек ERP
+- [[Site]] — для сравнения: хостинг `kayakmoscow.ru` (отдельный, не этот VDS)

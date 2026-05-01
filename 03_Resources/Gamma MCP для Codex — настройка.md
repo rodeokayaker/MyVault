@@ -1,6 +1,6 @@
 ---
 created: 2026-03-11
-updated: 2026-03-11
+updated: 2026-05-01
 type: task-note
 tags: [gamma, mcp, codex]
 status: draft
@@ -22,3 +22,6 @@ status: draft
 ## Вводные
 - Gamma API: ключ лежит в `/home/vanya/.config/openclaw/env` (`GAMMA_API_KEY`)
 - CLI: `gammactl`
+
+## Связанные заметки
+- [[MOC_Resources]]

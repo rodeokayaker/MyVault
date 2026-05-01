@@ -1,3 +1,10 @@
+---
+type: archive
+status: archived
+tags: [archive]
+updated: 2026-05-01
+---
+
 # Obsidian на Raspberry Pi
 
 ## Что сделано
@@ -29,3 +36,5 @@ obsidian
 openclaw memory index --agent main --force
 ```
 
+## Связанные заметки
+- [[MOC_Home]]

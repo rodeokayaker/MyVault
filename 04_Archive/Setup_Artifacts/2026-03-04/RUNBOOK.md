@@ -1,3 +1,10 @@
+---
+type: archive
+status: archived
+tags: [archive]
+updated: 2026-05-01
+---
+
 # RUNBOOK (Raspberry + OpenClaw)
 
 ## 1) Базовая проверка после перезагрузки
@@ -96,3 +103,6 @@ sudo /usr/local/bin/pi-healthcheck
 ```bash
 sudo tail -n 100 /var/log/pi-healthcheck.log
 ```
+
+## Связанные заметки
+- [[MOC_Home]]

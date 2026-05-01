@@ -1,6 +1,6 @@
 ---
 created: 2026-03-12
-updated: 2026-03-12
+updated: 2026-05-01
 type: reference
 project: Smart Kayak
 status: active
@@ -55,3 +55,19 @@ tags: [smart-kayak, patent, drawings, numerals]
 - На фиг. 4Б обозначения `1` и `2` используются для тех же объектов, что и на фиг. 1, при пояснении вычисления относительной ориентации весла и плавсредства.
 - На фиг. 6 обозначения `1` и `2` также относятся к тем же объектам, что и на фиг. 1, при пояснении вычисления составляющей усилия для усиления мотором.
 - Если один и тот же элемент показан на нескольких фигурах, для него сохраняется одно и то же позиционное обозначение.
+
+## Связанные заметки
+- [[MOC_Projects]]
+- [[01_Projects/Smart Kayak/Project]]
+- [[01_Projects/Smart Kayak/Smart Kayak]]
+- [[01_Projects/Smart Kayak/Architecture]]
+- [[01_Projects/Smart Kayak/Design Language]]
+- [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)]]
+- [[01_Projects/Smart Kayak/Hardware/Батарея SUP — спецификация]]
+- [[01_Projects/Smart Kayak/Kayak/Kayak]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — заявка]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — формула]]
+- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — чертежи]]
+- [[01_Projects/Smart Kayak/Patent/Патент — описание Smart Kayak]]
+- [[01_Projects/Smart Kayak/SUP/SUP]]
+- [[01_Projects/Smart Kayak/SUP/docs/Электро-САП борд — Техническое описание]]

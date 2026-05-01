@@ -7,10 +7,10 @@ updated: {{date:YYYY-MM-DD}}
 
 # {{title}}
 
-## Problem
+## Проблема
 
-## Idea
+## Идея
 
-## Risks
+## Риски
 
-## Next step
+## Следующий шаг

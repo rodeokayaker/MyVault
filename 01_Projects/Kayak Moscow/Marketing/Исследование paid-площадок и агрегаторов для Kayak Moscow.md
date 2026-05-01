@@ -1,10 +1,11 @@
 ---
 created: 2026-04-04
-updated: 2026-04-04
+updated: 2026-05-01
 type: research
 project: KayakMoscow
 status: active
 tags: [kayakmoscow, marketing, research, paid-platforms, kudago, tripster, sputnik8, afisha, timepad]
+parent: "[[KayakMoscow]]"
 ---
 
 # Исследование paid-площадок и агрегаторов для Kayak Moscow
@@ -1055,3 +1056,12 @@ RUSSPASS — это не просто "еще один сайт".
 
 `Платно — нет.`  
 Если когда-то захочется протестировать бесплатное присутствие вручную — можно, но не более.
+
+---
+
+## Связанные заметки
+
+- [[KayakMoscow]] — родительский хаб
+- [[Исследование рекламного продвижения Kayak Moscow на сезон 2026]] — общий медиамикс, в который ложатся paid-площадки
+- [[Ads_Automation]] — автоматизация Direct'а (основной перфоманс-канал)
+- [[Site]] — посадочные, на которые льётся трафик с площадок

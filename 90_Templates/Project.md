@@ -7,13 +7,14 @@ updated: {{date:YYYY-MM-DD}}
 
 # {{title}}
 
-## Goal
+## Цель
 
-## Context
+## Контекст
 
-## Next actions
+## Следующие шаги
+
 - [ ]
 
-## Notes
+## Заметки
 
-## Links
+## Связанные заметки

@@ -1,3 +1,10 @@
+---
+type: resource
+status: active
+tags: [resource, resource/raspberry-docs]
+updated: 2026-05-01
+---
+
 # Obsidian на Raspberry Pi
 
 ## Vault
@@ -50,3 +57,13 @@ vaultsync-off
 ```bash
 sudo -u vanya openclaw memory index --agent main --force
 ```
+
+## Связанные заметки
+- [[MOC_Resources]]
+- [[03_Resources/Raspberry_Docs/HID_Periphery]]
+- [[03_Resources/Raspberry_Docs/OpenClaw]]
+- [[03_Resources/Raspberry_Docs/OpenClaw_Current_Config]]
+- [[03_Resources/Raspberry_Docs/RUNBOOK]]
+- [[03_Resources/Raspberry_Docs/Raspberry_Setup_Index]]
+- [[03_Resources/Raspberry_Docs/Syncthing_Obsidian_Sync]]
+- [[03_Resources/Raspberry_Docs/VPN_AmneziaWG]]

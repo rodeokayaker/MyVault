@@ -2,7 +2,7 @@
 type: note
 status: active
 tags: [smart-kayak, hardware, водомёт, 3d-print]
-updated: 2026-03-09
+updated: 2026-05-01
 aliases: [Flow Straightener, Выпрямитель потока]
 ---
 
