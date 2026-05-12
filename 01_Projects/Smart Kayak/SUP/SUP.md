@@ -2,7 +2,7 @@
 type: project-subproject
 status: active
 tags: [smart-kayak, sup, product, hardware]
-updated: 2026-05-01
+updated: 2026-05-12
 ---
 
 # SUP
@@ -21,7 +21,12 @@ updated: 2026-05-01
 
 ## Docs
 
-- [[Электро-САП борд — Техническое описание]]
+- [[01_Projects/Smart Kayak/SUP/docs/SUP — системная архитектура|SUP — системная архитектура]]
+- [[01_Projects/Smart Kayak/SUP/docs/Электро-САП борд — Техническое описание|Электро-САП борд — Техническое описание]]
+- [[01_Projects/Smart Kayak/Hardware/Батарея SUP — спецификация|Батарея SUP — спецификация]]
+- [[01_Projects/Smart Kayak/SUP/docs/SUP — контрол-бокс|SUP — контрол-бокс]]
+- [[01_Projects/Smart Kayak/SUP/docs/SUP — Motor Dock|SUP — Motor Dock]]
+- [[01_Projects/Smart Kayak/SUP/docs/SUP — E-Fin|SUP — E-Fin]]
 
 ## Next actions
 
@@ -31,6 +36,8 @@ updated: 2026-05-01
 - [ ] Проработать гидродинамику E-Fin
 - [ ] Определить параметры крыльчатки (диаметр/шаг/материал)
 - [ ] Продумать throttle/пульт управления
+- [ ] Описать логику кнопки и RGB LED в контрол-боксе
+- [ ] Проверить сервисную замену E-Fin и герметизацию пустого слота
 
 ## Links
 
