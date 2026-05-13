@@ -7,6 +7,9 @@ updated: 2026-05-01
 
 # Smart Kayak — Architecture
 
+> [!NOTE] Роль заметки
+> Это системная архитектура всей платформы Smart Kayak. Рыночная стратегия, KPI, кастдев и go-to-market должны жить в исследовательских заметках, а не расползаться сюда.
+
 ## 1) Смысл системы
 
 Smart Kayak — система усиления гребли: умное весло измеряет движение и нагрузку, каяк вычисляет требуемую поддержку и подаёт тягу на мотор синхронно с фазой гребка.
@@ -97,6 +100,8 @@ Smart Kayak — система усиления гребли: умное вес�
 ## Связанные заметки
 - [[MOC_Projects]]
 - [[01_Projects/Smart Kayak/Project]]
+- [[01_Projects/Smart Kayak/Практическое исследование — продукт, кастдев, KPI|Практическое исследование — продукт, кастдев, KPI]]
+- [[01_Projects/Smart Kayak/Исследование рынков — Smart Kayak vs SUP|Исследование рынков — Smart Kayak vs SUP]]
 - [[01_Projects/Smart Kayak/Smart Kayak]]
 - [[01_Projects/Smart Kayak/Design Language]]
 - [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)]]

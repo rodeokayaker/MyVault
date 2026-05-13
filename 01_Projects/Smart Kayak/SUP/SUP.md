@@ -30,6 +30,11 @@ updated: 2026-05-12
 
 ## Next actions
 
+### Product / market
+- [ ] Свести hero-сценарий SUP в один короткий product story для demo / rental / resort
+- [ ] Определить onboarding-сценарий первого опыта: что человек должен понять и почувствовать за первые 10 минут
+
+### Engineering
 - [ ] Выбрать: магнитная защелка или стропа для носовой фиксации батареи
 - [ ] Уточнить ESC / силовую электронику именно для SUP-конфигурации
 - [x] Уточнить фактическую внутреннюю сборку текущей SUP-батареи 24В 80Ah
@@ -42,7 +47,9 @@ updated: 2026-05-12
 ## Links
 
 - [[01_Projects/Smart Kayak/Project|Project]]
-- [[Architecture]]
+- [[01_Projects/Smart Kayak/Architecture|Architecture]]
+- [[01_Projects/Smart Kayak/Практическое исследование — продукт, кастдев, KPI|Практическое исследование — продукт, кастдев, KPI]]
+- [[01_Projects/Smart Kayak/Исследование рынков — Smart Kayak vs SUP|Исследование рынков — Smart Kayak vs SUP]]
 
 ## Связанные заметки
 - [[MOC_Projects]]

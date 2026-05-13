@@ -22,18 +22,25 @@ updated: 2026-05-01
 
 ## Subprojects
 
-- [[Kayak]]
-- [[Smart Paddle]]
-- [[SUP]]
+- [[01_Projects/Smart Kayak/Kayak/Kayak|Kayak]]
+- [[01_Projects/Smart Kayak/Smart Paddle/Smart Paddle|Smart Paddle]]
+- [[01_Projects/Smart Kayak/SUP/SUP|SUP]]
 
 ## Architecture
 
-- [[Architecture]]
+- [[01_Projects/Smart Kayak/Architecture|Architecture]]
 
 ## Research
 
 - [[01_Projects/Smart Kayak/Исследование рынков — Smart Kayak vs SUP|Исследование рынков — Smart Kayak vs SUP]]
 - [[01_Projects/Smart Kayak/Практическое исследование — продукт, кастдев, KPI|Практическое исследование — продукт, кастдев, KPI]]
+- [[01_Projects/Smart Kayak/Smart Kayak — roadmap by tracks|Smart Kayak — roadmap by tracks]]
+
+## Operating model
+
+- Hero market: [[01_Projects/Smart Kayak/SUP/SUP|SUP]] как первый experience-first продукт
+- Utility second market: [[01_Projects/Smart Kayak/Kayak/Kayak|Kayak]] как более рациональный второй трек
+- System view: [[01_Projects/Smart Kayak/Architecture|Architecture]]
 
 ## Repositories
 
@@ -54,12 +61,16 @@ updated: 2026-05-01
 - [x] [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)|Flow Straightener (водомёт)]]: смоделировать выпрямитель потока (+5 см) и посадку под подшипник; отдать Максу в печать.
 - [x] После регистрации заявки: добавить регистрационный номер, дату регистрации и подтверждающие документы в патентный раздел Obsidian.
 - [x] Перед подачей патента: проверить единообразие терминов, убрать излишне жёсткую привязку к конкретной элементной базе в описании примеров и финально вычитать формулу на предмет заужения.
-- [ ] Формализовать roadmap по трекам `Kayak` / `Smart Paddle` / `SUP`
+- [x] Формализовать roadmap по трекам `Kayak` / `Smart Paddle` / `SUP`
+- [ ] Довести предпродакшен SUP как первый product track
+- [ ] Сделать управление с телефона
+- [ ] Сформулировать и сравнить 2–3 варианта предиктора
 - [ ] Определить KPI для water-тестов (стабильность, задержка, энергопотребление)
 - [ ] Подготовить тестовую матрицу стенд -> вода
 
 ## Links
 - [[MOC_Projects]]
+- [[01_Projects/Smart Kayak/Smart Kayak|Smart Kayak]]
 
 ## Связанные заметки
 - [[MOC_Projects]]

@@ -1,55 +1,49 @@
 ---
 type: project-subproject
 status: active
-tags: [smart-kayak, smart-paddle, esp32, ble, sensors]
-updated: 2026-05-01
+tags: [smart-kayak, smart-paddle, firmware, sensors, ble]
+updated: 2026-05-13
 ---
 
 # Smart Paddle
 
-Умное весло (SmartPaddle): сенсорный BLE-модуль, который измеряет динамику гребка и передает данные в SmartKayak.
+Подпроект умного весла: сенсорный и коммуникационный слой платформы Smart Kayak.
 
 ## Goal
 
-Надежный источник качественной телеметрии для расчета моторной поддержки.
+Стабильно измерять движение и усилие гребка, передавать телеметрию в контроллер и поддерживать калибровку без хрупкой магии.
 
 ## Scope
 
-- аппаратная база: ESP32 (C3/S3), IMU BNO08x, тензодатчики (HX711/ADS1220)
-- данные: quaternion/IMU + усилия правой/левой лопасти + timestamp
-- BLE: бинарные notify-каналы (`FORCE/IMU/ORIENTATION`) + JSON-канал (`SP_Protocol`)
-- сервисные функции: pairing, калибровки, спецификации, power management
+- IMU / ориентация / инерциальные данные
+- тензодатчики / force sensing
+- BLE server и телеметрические каналы
+- команды калибровки, pairing, shutdown, specs
+- качество сигналов для assist-логики и анализа техники
 
-## Repositories
+## Docs
 
-- Firmware: https://github.com/rodeokayaker/SmartKayak_PIO_Arduino
-- Model stand: https://github.com/rodeokayaker/SK_ModelStand
+- [[01_Projects/Smart Kayak/Architecture|Architecture]]
+- [[01_Projects/Smart Kayak/Project|Project]]
+- [[01_Projects/Smart Kayak/Smart Paddle/Smart Paddle — sensors and calibration|Smart Paddle — sensors and calibration]]
+- [[01_Projects/Smart Kayak/Smart Paddle/Smart Paddle — BLE protocol|Smart Paddle — BLE protocol]]
 
 ## Next actions
 
-- [ ] Формализовать процедуру калибровки для полевых запусков
-- [ ] Закрыть минимальный набор диагностических метрик BLE-качества
-- [ ] Изменить протокол, чтоб данные с IMU датчика сразу передавались по BLE
-- [ ] Зафиксировать версионирование протокола `SP_Protocol`
-- [ ] 
+- [ ] Добить процедуры калибровки и критерии качества в [[01_Projects/Smart Kayak/Smart Paddle/Smart Paddle — sensors and calibration|Smart Paddle — sensors and calibration]]
+- [ ] Добить формат каналов и контракт полей в [[01_Projects/Smart Kayak/Smart Paddle/Smart Paddle — BLE protocol|Smart Paddle — BLE protocol]]
+- [ ] Связать Smart Paddle-логирование с требованиями model stand и water logs
 
 ## Links
 
 - [[01_Projects/Smart Kayak/Project|Project]]
-- [[Architecture]]
+- [[01_Projects/Smart Kayak/Architecture|Architecture]]
+- [[01_Projects/Smart Kayak/Kayak/Kayak|Kayak]]
+- [[01_Projects/Smart Kayak/Smart Kayak|Smart Kayak]]
 
 ## Связанные заметки
 - [[MOC_Projects]]
-- [[01_Projects/Smart Kayak/Project]]
 - [[01_Projects/Smart Kayak/Smart Kayak]]
+- [[01_Projects/Smart Kayak/Project]]
 - [[01_Projects/Smart Kayak/Architecture]]
-- [[01_Projects/Smart Kayak/Design Language]]
-- [[01_Projects/Smart Kayak/Hardware/Flow Straightener (водомёт)]]
-- [[01_Projects/Smart Kayak/Hardware/Батарея SUP — спецификация]]
-- [[01_Projects/Smart Kayak/Kayak/Kayak]]
-- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — заявка]]
-- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — обозначения]]
-- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — формула]]
-- [[01_Projects/Smart Kayak/Patent/Патент — Smart Kayak — чертежи]]
-- [[01_Projects/Smart Kayak/Patent/Патент — описание Smart Kayak]]
 - [[01_Projects/Smart Kayak/SUP/SUP]]
