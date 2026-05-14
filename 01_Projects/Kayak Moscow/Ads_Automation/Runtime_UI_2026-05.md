@@ -53,6 +53,8 @@ last_commit: 0c94458
 | `/dashboard/decisions` | Журнал решений + фильтр по `campaign_id` |
 | `/dashboard/negatives` | Approval flow: фильтры (decision/label) + кнопки Approve / Reject. Approve = `decision=approved` в БД, push в Direct ещё не реализован |
 
+**Добавлено 2026-05-12:** На странице `/dashboard/campaigns/{id}/strategy?preset=NAME` — дропдаун выбора YAML-пресета (`brand` / `generic` / `rsya_wide` / `retargeting` / `weather_experiment`). Подставляет кривую в форму без сохранения — посмотреть и сохранить руками. См. [[Ads_Strategies_2026]].
+
 ## Что осознанно НЕ сделано
 
 - Реальный push минус-фразы в Direct (`Campaigns.update` с `NegativeKeywords`) — отложено до прод-доступа, в sandbox AdGroups «фантомные» и тестировать невозможно.

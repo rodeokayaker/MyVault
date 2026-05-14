@@ -1,10 +1,10 @@
 ---
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-05-14
 type: reference
 project: KayakMoscow
-status: pending-submission
-tags: [kayakmoscow, ads, yandex-direct, application, prod-access]
+status: approved
+tags: [kayakmoscow, ads, yandex-direct, application, prod-access, completed]
 parent: "[[Ads_Automation]]"
 ---
 
@@ -14,7 +14,7 @@ parent: "[[Ads_Automation]]"
 
 ## Статус
 
-**На 2026-05-08:** черновик готов, заявка ещё не отправлена. Подаётся через UI Direct → Инструменты → Настройки API → запрос полного доступа.
+✅ **Одобрено 2026-05-08.** Заявка подана со спецификацией `docs/yandex_application/spec_short.pdf`, одобрено Yandex в тот же день. `DIRECT_API_ENV` переключён `sandbox → prod` на VDS 2026-05-08, 3 кампании созданы скриптом 2026-05-12 (см. [[Live_Campaigns_2026-05]]).
 
 ## Файлы в репо
 
