@@ -2,14 +2,14 @@
 type: project-note
 status: active
 tags: [project, project/vpn]
-updated: 2026-05-01
+updated: 2026-05-29
 ---
 
 # Timeweb Transit VPN — System Description
 
 ## Status
 
-Состояние заметки: актуально на `2026-04-08`.
+Состояние заметки: актуально на `2026-05-29`.
 
 Система находится в рабочем состоянии.
 
@@ -100,6 +100,8 @@ transit-wg-backup    -> NL probe
 Healthcheck использует отдельные probe-контейнеры.
 Это исключает конфликт между активным пользовательским трафиком и проверкой внешних каналов.
 
+С `2026-05-29` healthcheck дополнительно перезапускает probe-контейнер один раз, если probe запущен, но не проходит проверку. Это закрывает сценарий, когда `transit-wg-primary` зависает в состоянии без входящих WireGuard-пакетов.
+
 ### 4. Для полного `AmneziaWG 2.0` понадобилась замена рантайма
 
 Изначально ingress работал на legacy image `metaligh/amneziawg`.
@@ -181,6 +183,10 @@ Runtime-логика внутри `command`:
 
 Назначение:
 - probe для `US`
+
+Практическое замечание:
+- в активном режиме `us` этот контейнер может быть остановлен штатно;
+- когда система находится в `nl` или `direct`, он используется как probe, чтобы проверить возврат `US`.
 
 ### `transit-wg-backup`
 
@@ -320,9 +326,43 @@ Timer:
 - если жив `US`, используется `US`
 - если `US` недоступен, пробуется `NL`
 - если `NL` тоже недоступен, используется `direct`
+- если probe-контейнер запущен, но проверка не проходит, healthcheck один раз делает `docker restart "$container"` и повторяет проверку
 
 Текущий режим:
 - `us`
+
+### Incident 2026-05-29: US probe stale
+
+Симптом:
+- Google / NotebookLM перестали видеть клиента как `US`;
+- `current-mode` был `nl`;
+- `route.final` в `/opt/transit-vpn/sing-box/config.json` был `nl-out`;
+- внешний IP через transit был `178.208.88.56` (`NL / Amsterdam`).
+
+Диагностика:
+- US endpoint `107.175.35.94:43094` был доступен по сети;
+- на [[01_Projects/VPN/RackNerd/Secrets|RackNerd]] внутри `amnezia-wireguard` порт `43094/udp` слушал, peer Timeweb был в `/opt/amnezia/wireguard/wg0.conf`;
+- на US стороне `wg show` видел peer `3Uo2bkyFTsVFYlfqA5MNH9vA3sx7ughYeJ4KrE5E6TM=` и свежий endpoint Timeweb;
+- на Timeweb `transit-wg-primary` показывал `0 B received` и не проходил `curl --interface wg0`;
+- контейнер `transit-wg-primary` был запущен с `2026-05-27 22:23 UTC`, что совпало с началом проблемы.
+
+Восстановление:
+
+```bash
+docker restart transit-wg-primary
+/opt/transit-vpn/host-routing/apply-routes.sh us
+/opt/transit-vpn/host-routing/healthcheck.sh
+```
+
+Результат:
+- появился свежий handshake с `107.175.35.94:43094`;
+- e2e через transit снова дал `107.175.35.94`;
+- `ipinfo.io` показал `US / Buffalo, New York`;
+- healthcheck стал стабильно возвращать `us`.
+
+Постоянный фикс:
+- live `/opt/transit-vpn/host-routing/healthcheck.sh` обновлен retry/restart логикой для probe-контейнеров;
+- локальный `/Users/vanya/Documents/VPN/deploy_transit_rework.sh` обновлен тем же изменением.
 
 ## Active AWG Users
 
@@ -382,6 +422,38 @@ docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' | grep transit
 
 ```bash
 cat /opt/transit-vpn/host-routing/current-mode
+```
+
+### Проверить активный внешний IP transit data plane
+
+Локально:
+
+```bash
+bash transit_e2e_test.sh https://api.ipify.org
+bash transit_e2e_test.sh https://ipinfo.io/json
+```
+
+Важно: `transit_e2e_test.sh` использует фиксированные временные `veth`-имена, поэтому запускать эти проверки нужно последовательно, а не параллельно.
+
+Ожидаемо в нормальном режиме:
+- `api.ipify.org` -> `107.175.35.94`
+- `ipinfo.io` -> `US / Buffalo, New York`
+
+### Проверить US probe при failover
+
+Если система в `nl` или `direct`, проверить probe-контейнер:
+
+```bash
+docker start transit-wg-primary
+docker exec transit-wg-primary wg show
+docker exec transit-wg-primary sh -lc 'curl -4 --interface wg0 --max-time 15 -fsS --resolve api.ipify.org:443:104.26.13.205 https://api.ipify.org && echo'
+```
+
+Если `wg show` показывает `0 B received` или нет handshake, но US-сервер жив:
+
+```bash
+docker restart transit-wg-primary
+/opt/transit-vpn/host-routing/healthcheck.sh
 ```
 
 ### Проверить `awg1`

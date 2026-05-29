@@ -2,7 +2,7 @@
 type: project-note
 status: active
 tags: [project, project/vpn]
-updated: 2026-05-01
+updated: 2026-05-29
 ---
 
 # Timeweb Transit VPN — Progress
@@ -11,7 +11,7 @@ updated: 2026-05-01
 
 Состояние: `done / operational`.
 
-Актуально на `2026-04-08`.
+Актуально на `2026-05-29`.
 
 Система в рабочем состоянии и сейчас состоит из двух слоев:
 - transit VPN для split-routing и egress failover
@@ -25,6 +25,33 @@ updated: 2026-05-01
 
 Текущий runtime-режим:
 - `current-mode = us`
+
+## Update 2026-05-29
+
+Проблема:
+- Google / NotebookLM перестали видеть подключение как `US`.
+- Transit-stack ушел в failover-режим `NL`.
+
+Диагностика:
+- `current-mode` был `nl`.
+- `sing-box route.final` был `nl-out`.
+- e2e через transit показывал `178.208.88.56`, `NL / Amsterdam`.
+- US egress `107.175.35.94:43094` на [[01_Projects/VPN/RackNerd/Secrets|RackNerd]] был жив, `amnezia-wireguard` работал, peer Timeweb был в конфиге.
+- На Timeweb завис probe-контейнер `transit-wg-primary`: `wg show` показывал `0 B received`, handshake не поднимался.
+
+Что сделано:
+- перезапущен `transit-wg-primary` на Timeweb;
+- после restart появился свежий WireGuard handshake с `107.175.35.94:43094`;
+- выполнен возврат active route на `US` через `/opt/transit-vpn/host-routing/apply-routes.sh us`;
+- live `/opt/transit-vpn/host-routing/healthcheck.sh` обновлен: если probe-контейнер не проходит проверку, healthcheck один раз делает `docker restart "$container"` и повторяет проверку;
+- локальный source-of-truth `/Users/vanya/Documents/VPN/deploy_transit_rework.sh` обновлен тем же retry/restart behavior.
+
+Проверено после восстановления:
+- `current-mode = us`;
+- `sing-box route.final = us-out`;
+- `transit_e2e_test.sh https://api.ipify.org` -> `107.175.35.94`;
+- `ipinfo.io` -> `US / Buffalo, New York`;
+- `transit-vpn-failover.service` несколько раз подряд вернул `us`.
 
 ## Что в итоге сделано
 
@@ -57,6 +84,7 @@ updated: 2026-05-01
 - `RU/private` не уходит в `US`
 - `gosuslugi.ru` и `esia.gosuslugi.ru` работают через отдельный `NL`-route
 - failover `US -> NL -> direct` работает
+- после инцидента `2026-05-29` US egress восстановлен и снова дает `107.175.35.94`
 - старый `WG` ingress на `585/udp` после миграции не сломан
 - новый полный `AmneziaWG 2.0` ingress на `586/udp` работает с:
   - `Jc/Jmin/Jmax`
